@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class MyStepdefs {
     private WebDriver driver;
     private WebDriverWait wait;
-  //  String name = "";
+
 
     @Given("I have chosen a {string} and logged in Mailchimp")
     public void iHaveChosenAandLoggedinMailchimp(String browser) throws InterruptedException {
@@ -37,10 +37,6 @@ public class MyStepdefs {
             WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.id("onetrust-reject-all-handler")));
             element.click(); //cookies
 
-            //driver.findElement(By.id("onetrust-reject-all-handler")).click();//cookies
-
-            // wait.until(ExpectedConditions.presenceOfElementLocated(By.id("onetrust-reject-all-handler")));
-            // driver.findElement(By.id("onetrust-reject-all-handler")).click();
 
         } else if (browser.equalsIgnoreCase("edge")) {
             System.setProperty("webdriver.edge.driver", "C:\\Selenium\\msedgedriver.exe");
@@ -68,7 +64,7 @@ public class MyStepdefs {
         field.click();
         field.clear();
         field.sendKeys(username);
-       // name = driver.findElement(By.name("username")).getText();
+
     }
 
     @And("I select a {string}")
@@ -83,35 +79,31 @@ public class MyStepdefs {
         //Thread.sleep(5000);
     }
 
-
     @Then("My registration will be {string}")
-    public void myRegistrationWillBe(String result) {
-       // wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
+    public void myRegistrationWillBe(String result) throws InterruptedException{
+
         if (result.equals("tooLong")) {
-            String actual = driver.findElement(By.className("invalid-error")).getText();//#signup-form > fieldset > div:nth-child(2) > div > span
-            String expected = "Enter a value less than 100 characters long";
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#av-flash-errors li")));
+            String actual = driver.findElement(By.cssSelector("#av-flash-errors li")).getText();
+            String expected = "Please check your entry and try again.";
             assertEquals(expected, actual);
-        } else if (result.equals("occupiedName")) {//By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")
-            // String name=driver.findElement(By.name("username")).getText();
-            //String locator = "a[href=\"/?username=" + name + "\"]";  //a[href="/?username=chunlin"]  "a[href=\"/?username="+name+"\"]"
-          //  String actual = driver.findElement(By.cssSelector(locator)).getText();
-            String actual = driver.findElement(By.cssSelector("a[href$='username=']")).getText();
-            String expected = "log in";  //By.cssSelector(".invalid-error")
+        } else if (result.equals("occupiedName")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
+            String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
+            String expected = "log in";
             assertEquals(expected, actual);
         } else if (result.equals("noEmail")) {
             String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
             String expected = "An email address must contain a single @.";
             assertEquals(expected, actual);
         } else if (result.equals("yes")) {
-
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
             String actual = driver.findElement(By.className("!margin-bottom--lv3")).getText();
             String expected = "Check your email";
             assertEquals(expected, actual);
         }
 
-
     }
-
     @After
     public void tearDown() {
         driver.close();
@@ -120,19 +112,6 @@ public class MyStepdefs {
 
 
 }
-  /*
-    WebElement element =
-      (new WebDriverWait(driver, 10)).until(ExpectedConditions.
 
-                    presenceOfElementLocated(By.id("elementId")));
-
-
-               @After
-    public void tearDown() {
-        driver.close();
-        driver.quit();
-    }
-
-   */
 
 

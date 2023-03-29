@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="four scenarios">
+    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="test occupiedName">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Register.feature" afterDir="false" />
@@ -90,11 +90,26 @@
       <option name="project" value="LOCAL" />
       <updated>1680070774160</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test occupiedName">
+      <created>1680126518066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680126518066</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test occupiedName">
+      <created>1680126529660</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680126529660</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="four scenarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="four scenarios" />
+    <MESSAGE value="test occupiedName" />
+    <option name="LAST_COMMIT_MESSAGE" value="test occupiedName" />
   </component>
 </project>
