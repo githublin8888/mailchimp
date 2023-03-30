@@ -12,7 +12,7 @@ Feature: Register
       | browser | email           | username                                                                                              | password        | result       |
       #| chrome  | lin@qq.com | zzzz     |Q!we1234   | yes |
       #| edge  | er@qq.com | likeyouhaha | !Aqwe123 | yes    |
-      | chrome  | aszxde@qq.com   | wswes                                                                                                 | !!WQabb12362d   | yes          |
-      | chrome  | itislong@qq.com | lanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamn | !!WQdee13333d   | tooLong      |
-      | chrome  | xsntaken@qq.com | clunlin                                                                                               | !!WQdee13333dvv | occupiedName |
-      | chrome  |                 | helloworld2023                                                                                        | !!WQdccv133d    | noEmail      |
+       | chrome  | nbfdde@qq.com   | dffmnnmmkj                                                                                                 | !!WQabb12362d   | yes          |
+      #| chrome  | itislong@qq.com | lanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamn | !!WQdee13333d   | tooLong      |
+     #| chrome  | xsntaken@qq.com | clunlin                                                                                               | !!WQdee13333dvv | occupiedName |
+      #| chrome  |                 | helloworld2023                                                                                        | !!WQdccv133d    | noEmail      |

@@ -14,11 +14,17 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class MyStepdefs {
     private WebDriver driver;
     private WebDriverWait wait;
+
+   // ArrayList<String> names = new ArrayList<String>();
+  //  boolean isOccupied;
+
 
 
     @Given("I have chosen a {string} and logged in Mailchimp")
@@ -64,6 +70,15 @@ public class MyStepdefs {
         field.click();
         field.clear();
         field.sendKeys(username);
+/*
+        names.add(username);
+        if(names.size()>1){
+            for (int i = 0; i < names.size() - 2; i++) {
+                if (names.get(names.size() - 1).equals(names.get(i))) {
+                    isOccupied = true;
+                }
+            }
+        }*/
 
     }
 
@@ -80,7 +95,7 @@ public class MyStepdefs {
     }
 
     @Then("My registration will be {string}")
-    public void myRegistrationWillBe(String result) throws InterruptedException{
+    public void myRegistrationWillBe(String result) throws InterruptedException {
 
         if (result.equals("tooLong")) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#av-flash-errors li")));
@@ -96,14 +111,22 @@ public class MyStepdefs {
             String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
             String expected = "An email address must contain a single @.";
             assertEquals(expected, actual);
+        } else if (result.equals("yes") && driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
+            (new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
+           //wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]"))); //By.cssSelector(".av-flash li")
+            String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
+            String expected = "log in";
+            assertEquals(expected, actual);
         } else if (result.equals("yes")) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
             String actual = driver.findElement(By.className("!margin-bottom--lv3")).getText();
             String expected = "Check your email";
             assertEquals(expected, actual);
+
         }
 
     }
+
     @After
     public void tearDown() {
         driver.close();
