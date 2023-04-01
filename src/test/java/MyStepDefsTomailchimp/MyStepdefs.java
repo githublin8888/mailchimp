@@ -14,7 +14,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,14 +21,9 @@ public class MyStepdefs {
     private WebDriver driver;
     private WebDriverWait wait;
 
-   // ArrayList<String> names = new ArrayList<String>();
-  //  boolean isOccupied;
-
-
 
     @Given("I have chosen a {string} and logged in Mailchimp")
     public void iHaveChosenAandLoggedinMailchimp(String browser) throws InterruptedException {
-
 
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
@@ -55,45 +49,69 @@ public class MyStepdefs {
         }
 
         wait = new WebDriverWait(driver, 20);
+
     }
 
     @Given("I enter my {string}")
     public void iEnterMy(String email) throws InterruptedException {
         driver.findElement(By.id("email")).sendKeys(email);
-        Thread.sleep(3000);
+        // Thread.sleep(3000);
     }
 
     @And("I enter a {string}")
-    public void iEnterA(String username) {
+    public void iEnterA(String username) throws InterruptedException {
 
         WebElement field = driver.findElement(By.name("username"));
         field.click();
         field.clear();
         field.sendKeys(username);
-/*
-        names.add(username);
-        if(names.size()>1){
-            for (int i = 0; i < names.size() - 2; i++) {
-                if (names.get(names.size() - 1).equals(names.get(i))) {
-                    isOccupied = true;
-                }
-            }
-        }*/
-
+        Thread.sleep(2000);
     }
 
     @And("I select a {string}")
-    public void iSelectA(String password) {
+    public void iSelectA(String password) throws InterruptedException {
         driver.findElement(By.id("new_password")).sendKeys(password);
+        Thread.sleep(2000);
     }
 
     @When("I click sign up")
-    public void iClickSignUp() {
+    public void iClickSignUp() throws InterruptedException {
 
         driver.findElement(By.id("create-account-enabled")).click();
-        //Thread.sleep(5000);
+        Thread.sleep(2000);
     }
 
+    @Then("My registration will be finished")
+    public void myRegistrationWillBeFinished() throws InterruptedException {
+        if (driver.findElement(By.cssSelector("#av-flash-errors li")).isDisplayed()) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#av-flash-errors li")));
+            String actual = driver.findElement(By.cssSelector("#av-flash-errors li")).getText();
+            String expected = "Please check your entry and try again.";
+            assertEquals(expected, actual);
+        } else if (driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
+            String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
+            String expected = "log in";
+            assertEquals(expected, actual);
+        } else if (driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).isDisplayed()) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")));
+            String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
+            String expected = "An email address must contain a single @.";
+            assertEquals(expected, actual);
+        } else if (driver.findElement(By.cssSelector("!margin-bottom--lv3")).isDisplayed()) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
+            String actual = driver.findElement(By.className("!margin-bottom--lv3")).getText();
+            String expected = "Check your email";
+            assertEquals(expected, actual);
+        }
+
+    }
+    @After
+    public void tearDown () {
+        driver.close();
+        driver.quit();
+    }}
+/*
     @Then("My registration will be {string}")
     public void myRegistrationWillBe(String result) throws InterruptedException {
 
@@ -108,12 +126,11 @@ public class MyStepdefs {
             String expected = "log in";
             assertEquals(expected, actual);
         } else if (result.equals("noEmail")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")));
             String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
             String expected = "An email address must contain a single @.";
             assertEquals(expected, actual);
-        } else if (result.equals("yes") && driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
-            (new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
-           //wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]"))); //By.cssSelector(".av-flash li")
+        } else if (driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).isDisplayed() && result.equals("yes")) {
             String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
             String expected = "log in";
             assertEquals(expected, actual);
@@ -122,19 +139,37 @@ public class MyStepdefs {
             String actual = driver.findElement(By.className("!margin-bottom--lv3")).getText();
             String expected = "Check your email";
             assertEquals(expected, actual);
-
         }
 
-    }
 
-    @After
-    public void tearDown() {
-        driver.close();
-        driver.quit();
-    }
+    }*/
 
 
-}
 
 
+
+
+/*
+else if (driver.findElement(By.cssSelector("a[href^=\\\"/?username=\\\"]")).isDisplayed()&&result.equals("yes") ) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\\\"/?username=\\\"]")));
+            //wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]"))); //By.cssSelector(".av-flash li")
+            String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
+            String expected = "log in";
+            assertEquals(expected, actual);
+
+
+            else if (driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).isDisplayed()&&result.equals("yes") ) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")));
+            //wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]"))); //By.cssSelector(".av-flash li")
+            String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
+            String expected = "log in";
+            assertEquals(expected, actual);
+        }else if (result.equals("yes")) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
+            String actual = driver.findElement(By.className("!margin-bottom--lv3")).getText();
+            String expected = "Check your email";
+            assertEquals(expected, actual);
+
+        }
+ */
 

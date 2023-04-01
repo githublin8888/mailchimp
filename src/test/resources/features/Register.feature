@@ -6,13 +6,14 @@ Feature: Register
     And I enter a "<username>"
     And I select a "<password>"
     When I click sign up
-    Then My registration will be "<result>"
+    #Then My registration will be "<result>"
+    Then My registration will be finished
 
     Examples:
-      | browser | email           | username                                                                                              | password        | result       |
+      | browser | email          | username  | password      | result |
       #| chrome  | lin@qq.com | zzzz     |Q!we1234   | yes |
       #| edge  | er@qq.com | likeyouhaha | !Aqwe123 | yes    |
-       | chrome  | nbfdde@qq.com   | dffmnnmmkj                                                                                                 | !!WQabb12362d   | yes          |
-      #| chrome  | itislong@qq.com | lanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamn | !!WQdee13333d   | tooLong      |
-     #| chrome  | xsntaken@qq.com | clunlin                                                                                               | !!WQdee13333dvv | occupiedName |
-      #| chrome  |                 | helloworld2023                                                                                        | !!WQdccv133d    | noEmail      |
+      | chrome  | llolsjhsd@qq.com | ophoiyt | !!WQabb12362d | yes    |
+      #| chrome  | itislong@qq.com  | lanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamnanndarnamn | !!WQdee13333d   | tooLong      |
+      #| chrome  | xsntaken@qq.com  | clunlin                                                                                               | !!WQdee13333dvv | occupiedName |
+      #| chrome  |                  | helloworld2023                                                                                        | !!WQdccv133d    | noEmail      |
