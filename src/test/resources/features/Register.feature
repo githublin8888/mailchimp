@@ -9,10 +9,12 @@ Feature: Register
     Then My registration will be "<result>"
 
     Examples:
-      | browser | email            | username                                                                                         | password        | result       |
-      | edge  | lin@qq.com | zzzz     |Q!we1234   | yes |
-      | edge  | er@qq.com | likeyouhaha | !Aqwe123 | yes    |
-      #| chrome  | zazaaszpd@qq.com | vazzapox                                                                                        | !!WQabb12362d   | yes          |
-      #| chrome  | itislong@qq.com  | lanndarnamnanndarnamnanndarnamnndarnamnanndarnamnanndarnamnanndarnamnannmnanndarnamnanndarnamnanndarnamn | !!WQdee13333d   | tooLong      |
-      #| chrome  | xsntaken@qq.com  | clunlin                                                                                           | !!WQdee13333dvv | occupiedName |
-      | edge  |                  | helloworld2023                                                                                   | !!WQdccv133d    | noEmail      |
+      | browser | email             | username                                                                                               | password        | result       |
+      | edge    | lazzain@qq.com    | zasaszzz                                                                                               | Q!we1234        | yes          |
+      | edge    | aaer@qq.com       | liaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouha | !Aqwe123        | tooLong      |
+      | edge    | xsntaken@qq.com   | clunlin                                                                                                | !!WQdee13333dvv | occupiedName |
+      | edge    |                   | dkeie                                                                                                  | !!WQfrge13333   | noEmail      |
+      | chrome  | zazaaaszpd@qq.com | vaaazzapox                                                                                             | !!WQabb12362d   | yes          |
+      | chrome  | itislong@qq.com   | asdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloqw | !!WQdee13333d   | tooLong      |
+      | chrome  | xsntaken@qq.com   | clunlin                                                                                                | !!WQdee13333dvv | occupiedName |
+      | chrome  |                   | helloworld2023                                                                                         | !!WQdccv133d    | noEmail      |

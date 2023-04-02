@@ -83,10 +83,10 @@ public class MyStepdefs {
         Thread.sleep(5000);
 
         try{
-            if (result.equals("yes") && !driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
+            if (result.equalsIgnoreCase("yes") && !driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
 
             }
-            else if (result.equals("yes") && driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
+            else if (result.equalsIgnoreCase("yes") && driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
                 String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
                 String expected = "log in";
@@ -97,17 +97,17 @@ public class MyStepdefs {
             String expected = "Check your email";
             assertEquals(expected, actual);
         }
-             if (result.equals("tooLong")) {
+             if (result.equalsIgnoreCase("tooLong")) {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#av-flash-errors li")));
                 String actual = driver.findElement(By.cssSelector("#av-flash-errors li")).getText();
                 String expected = "Please check your entry and try again.";
                 assertEquals(expected, actual);
-            } else if (result.equals("occupiedName")) {
+            } else if (result.equalsIgnoreCase("occupiedName")) {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
                 String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
                 String expected = "log in";
                 assertEquals(expected, actual);
-            } else if (result.equals("noEmail")) {
+            } else if (result.equalsIgnoreCase("noEmail")) {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")));
                 String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
                 String expected = "An email address must contain a single @.";
