@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="try catch solved the problem">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Register.feature" afterDir="false" />
-    </list>
+    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="8 examples" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +149,35 @@
       <option name="project" value="LOCAL" />
       <updated>1680426523516</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="8 examples">
+      <created>1680432737142</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680432737142</updated>
+    </task>
+    <task id="LOCAL-00012" summary="8 examples">
+      <created>1680432795043</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680432795043</updated>
+    </task>
+    <task id="LOCAL-00013" summary="8 examples">
+      <created>1680432807652</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680432807652</updated>
+    </task>
+    <task id="LOCAL-00014" summary="8 examples">
+      <created>1680432880923</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680432880923</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +198,7 @@
     <MESSAGE value="test occupied name" />
     <MESSAGE value="test isDisplayed" />
     <MESSAGE value="try catch solved the problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="try catch solved the problem" />
+    <MESSAGE value="8 examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="8 examples" />
   </component>
 </project>
