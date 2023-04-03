@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="8 examples">
+    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="en privat metod som använder sig av explicit wait">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Register.feature" afterDir="false" />
@@ -202,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680505336202</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="en privat metod som använder sig av explicit wait">
+      <created>1680548004537</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680548004537</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,6 +231,7 @@
     <MESSAGE value="test isDisplayed" />
     <MESSAGE value="try catch solved the problem" />
     <MESSAGE value="8 examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="8 examples" />
+    <MESSAGE value="en privat metod som använder sig av explicit wait" />
+    <option name="LAST_COMMIT_MESSAGE" value="en privat metod som använder sig av explicit wait" />
   </component>
 </project>

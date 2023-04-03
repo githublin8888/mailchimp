@@ -83,14 +83,14 @@ public class MyStepdefs {
     public void myRegistrationWillBe(String result) throws InterruptedException{
         Thread.sleep(5000);
 
-        try{
-            if (result.equalsIgnoreCase("yes") && !driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
+        try{                                                                  //By.cssSelector("a[href^=\"/?username=\"]")
+            if (result.equalsIgnoreCase("yes") && !driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).isDisplayed()) {
 
             }
-            else if (result.equalsIgnoreCase("yes") && driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).isDisplayed()) {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
-                String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
-                String expected = "log in";
+            else if (result.equalsIgnoreCase("yes") && driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).isDisplayed()) {
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")));
+                String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).getText();
+                String expected = "Great minds think alike - someone already has this username. If it's you, log in.";
                 assertEquals(expected, actual);
             } } catch (NoSuchElementException e) {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
@@ -99,15 +99,15 @@ public class MyStepdefs {
             assertEquals(expected, actual);
         }
              if (result.equalsIgnoreCase("tooLong")) {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#av-flash-errors li")));
-                String actual = driver.findElement(By.cssSelector("#av-flash-errors li")).getText();
-                String expected = "Please check your entry and try again.";
+                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"))); //By.cssSelector("#av-flash-errors li")
+                String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).getText();  //Please check your entry and try again.
+                String expected = "Enter a value less than 100 characters long";
                 assertEquals(expected, actual);
             } else if (result.equalsIgnoreCase("occupiedName")) {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href^=\"/?username=\"]")));
-                String actual = driver.findElement(By.cssSelector("a[href^=\"/?username=\"]")).getText();
-                String expected = "log in";
-                assertEquals(expected, actual);
+                 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")));
+                 String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).getText();
+                 String expected = "Great minds think alike - someone already has this username. If it's you, log in.";
+                 assertEquals(expected, actual);
             } else if (result.equalsIgnoreCase("noEmail")) {
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")));
                 String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
