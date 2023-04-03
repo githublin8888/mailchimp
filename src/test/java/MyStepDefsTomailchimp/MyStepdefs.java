@@ -23,7 +23,7 @@ public class MyStepdefs {
     private WebDriverWait wait;
 
     @Given("I have chosen a {string} and logged in Mailchimp")
-    public void iHaveChosenAandLoggedinMailchimp(String browser) throws InterruptedException {
+    public void iHaveChosenAandLoggedinMailchimp(String browser)  {
 
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
@@ -33,9 +33,7 @@ public class MyStepdefs {
             driver.get("https://login.mailchimp.com/signup/");
 
             driver.manage().window().maximize();
-
-            WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.id("onetrust-reject-all-handler")));
-            element.click(); //cookies
+            cookies(driver,By.id("onetrust-reject-all-handler")); //click the cookies
 
 
         } else if (browser.equalsIgnoreCase("edge")) {
@@ -43,19 +41,22 @@ public class MyStepdefs {
             driver = new EdgeDriver();
             driver.get("https://login.mailchimp.com/signup/");
             driver.manage().window().maximize();
-            WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.id("onetrust-reject-all-handler")));
-            element.click();
-            Thread.sleep(2000);
+            cookies(driver,By.id("onetrust-reject-all-handler"));
         }
 
         wait = new WebDriverWait(driver, 20);
 
     }
 
+    private void cookies(WebDriver driver,By by) {   //en privat metod som använder sig av explicit wait
+        (new WebDriverWait(driver,10)).until(ExpectedConditions.elementToBeClickable(by));
+        driver.findElement(by).click();
+    }
+
     @Given("I enter my {string}")
     public void iEnterMy(String email) throws InterruptedException {
         driver.findElement(By.id("email")).sendKeys(email);
-        // Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 
     @And("I enter a {string}")
