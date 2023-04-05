@@ -20,8 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MyStepdefs {
     private WebDriver driver;
-    private WebDriverWait wait;
-    //int randomNr = 10 + (int) (Math.random() * 1000);
+
 
     @Given("I have chosen a {string} and logged in Mailchimp")
     public void iHaveChosenAandLoggedinMailchimp(String browser) {
@@ -44,9 +43,6 @@ public class MyStepdefs {
             driver.manage().window().maximize();
             cookies(driver, By.id("onetrust-reject-all-handler"));
         }
-
-        wait = new WebDriverWait(driver, 20);
-
     }
 
     private void cookies(WebDriver driver, By by) {   //en privat metod som använder sig av explicit wait
@@ -71,12 +67,10 @@ public class MyStepdefs {
 
         driver.findElement(By.name("username")).click();
         driver.findElement(By.name("username")).clear();
-
         if (!username.equals("clunlin")) {
             username = username + randomNr;
         }
         driver.findElement(By.name("username")).sendKeys(username);
-
         Thread.sleep(2000);
     }
 
@@ -96,31 +90,28 @@ public class MyStepdefs {
         Thread.sleep(5000);
 
         if (result.equalsIgnoreCase("yes")) {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("!margin-bottom--lv3")));
-            String actual = driver.findElement(By.className("!margin-bottom--lv3")).getText();
+            String actual = getText(driver, By.className("!margin-bottom--lv3"));
             String expected = "Check your email";
             assertEquals(expected, actual);
         } else if (result.equalsIgnoreCase("tooLong")) {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"))); //By.cssSelector("#av-flash-errors li")
-            String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).getText();  //Please check your entry and try again.
+            String actual = getText(driver, By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"));  //Please check your entry and try again.
             String expected = "Enter a value less than 100 characters long";
             assertEquals(expected, actual);
         } else if (result.equalsIgnoreCase("occupiedName")) {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")));
-            String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span")).getText();
+            String actual = getText(driver, By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"));
             String expected = "Great minds think alike - someone already has this username. If it's you, log in.";
             assertEquals(expected, actual);
         } else if (result.equalsIgnoreCase("noEmail")) {
-            String actual = getText();
+            String actual = getText(driver, By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span"));
             String expected = "An email address must contain a single @.";
             assertEquals(expected, actual);
         }
     }
 
-    private String getText() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")));
-        String actual = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span")).getText();
-        return actual;
+    private String getText(WebDriver driver, By by) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
+        return element.getText();
     }
 
     @After

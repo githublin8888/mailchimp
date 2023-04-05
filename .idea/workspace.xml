@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="change css selector for occupied name and too long name">
+    <list default="true" id="e950f4a2-bd17-4ebb-bd72-6beba7ae66a1" name="Changes" comment="creat dynamic account">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MyStepDefsTomailchimp/MyStepdefs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/features/Register.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Register.feature" afterDir="false" />
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680552712031</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="creat dynamic account">
+      <created>1680735220012</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680735220012</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,6 +268,7 @@
     <MESSAGE value="8 examples" />
     <MESSAGE value="en privat metod som använder sig av explicit wait" />
     <MESSAGE value="change css selector for occupied name and too long name" />
-    <option name="LAST_COMMIT_MESSAGE" value="change css selector for occupied name and too long name" />
+    <MESSAGE value="creat dynamic account" />
+    <option name="LAST_COMMIT_MESSAGE" value="creat dynamic account" />
   </component>
 </project>
