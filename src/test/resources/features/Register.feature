@@ -1,6 +1,6 @@
 Feature: Register
 
-  Scenario Outline: Create a valid new user
+  Scenario Outline: Create a new user
     Given I have chosen a "<browser>" and logged in Mailchimp
     And I enter my "<email>"
     And I enter a "<username>"
@@ -9,12 +9,8 @@ Feature: Register
     Then My registration will be "<result>"
 
     Examples:
-      | browser | email           | username                                                                                               | password        | result       |
-      #| edge    | xdzain@qq.com   | zasfrzz                                                                                                | Q!we1234        | yes          |
-      #| edge    | aaer@qq.com     | liaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouha | !Aqwe123        | tooLong      |
-      #| edge    | xsntaken@qq.com | clunlin                                                                                                | !!WQdee13333dvv | occupiedName |
-      #| edge    |                 | dkeie                                                                                                  | !!WQfrge13333   | noEmail      |
-      #| chrome  | zazsddzpd@qq.com | vfaspdgt                                                                                                | !!WQabb12362d   | yes          |
-      | chrome  | itislong@qq.com | asdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloasdfghjkloqw | !!WQdee13333d   | tooLong      |
-      #| chrome  | xsntaken@qq.com | clunlin                                                                                                | !!WQdee13333dvv | occupiedName |
-      #| chrome  |                 | helloworld2023                                                                                         | !!WQdccv133d    | noEmail      |
+      | browser | email         | username | password        | result       |
+       #| chrome  | xddaedin@qq.com | zaedrezz                                                                                               | Q!we1234        | yes          |
+       #| chrome  | aaer@qq.com     | liaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouha | !Aqwe123        | tooLong      |
+      #| chrome  | ntaken@qq.com | clunlin  | !!WQdee13333dvv | occupiedName |
+      | chrome  |               | Saga     | !!WQdee13333dvv | noEmail |
