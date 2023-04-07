@@ -51,18 +51,17 @@ public class MyStepdefs {
     }
 
     @Given("I enter my {string}")
-    public void iEnterMy(String email) throws InterruptedException {
+    public void iEnterMy(String email)  {
         int randomNr = 10 + (int) (Math.random() * 1000);
         if (!email.equals("")) {
             email = randomNr + email;
         }
         driver.findElement(By.id("email")).sendKeys(email);
 
-        Thread.sleep(2000);
     }
 
     @And("I enter a {string}")
-    public void iEnterA(String username) throws InterruptedException {
+    public void iEnterA(String username)  {
         int randomNr = 10 + (int) (Math.random() * 1000);
 
         driver.findElement(By.name("username")).click();
@@ -71,13 +70,13 @@ public class MyStepdefs {
             username = username + randomNr;
         }
         driver.findElement(By.name("username")).sendKeys(username);
-        Thread.sleep(2000);
+
     }
 
     @And("I select a {string}")
-    public void iSelectA(String password) throws InterruptedException {
+    public void iSelectA(String password)  {
         driver.findElement(By.id("new_password")).sendKeys(password);
-        Thread.sleep(2000);
+
     }
 
     @When("I click sign up")
@@ -86,8 +85,7 @@ public class MyStepdefs {
     }
 
     @Then("My registration will be {string}")
-    public void myRegistrationWillBe(String result) throws InterruptedException {
-        Thread.sleep(5000);
+    public void myRegistrationWillBe(String result)  {
 
         if (result.equalsIgnoreCase("yes")) {
             String actual = getText(driver, By.className("!margin-bottom--lv3"));
