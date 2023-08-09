@@ -9,8 +9,8 @@ Feature: Register
     Then My registration will be "<result>"
 
     Examples:
-      | browser | email           | username                                                                                               | password        | result       |
-      | chrome  | xddaedin@qq.com | zaedrezz                                                                                               | Q!we1234        | yes          |
-      #| chrome  | aaer@qq.com     | liaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouha | !Aqwe123        | tooLong      |
-      #| chrome  | ntaken@qq.com   | clunlin                                                                                                | !!WQdee13333dvv | occupiedName |
-      #| edge    |                 | Saga                                                                                                   | !!WQdee13333dvv | noEmail      |
+      | browser | email           | username                                                                                             | password        | result       |
+      | chrome  | xddaedin@qq.com | zaedrezz                                                                                             | Q!we1234        | yes          |
+      | chrome  | aaer@qq.com     | liaakeyouhahaliaakeyouhahalakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouhahaliaakeyouha | !Aqwe123        | tooLong      |
+      | chrome  | ntaken@qq.com   | clunlin                                                                                              | !!WQdee13333dvv | occupiedName |
+      | edge    |                 | Saga                                                                                                 | !!WQdee13333dvv | noEmail      |

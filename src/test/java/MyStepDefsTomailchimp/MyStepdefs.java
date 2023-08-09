@@ -45,7 +45,7 @@ public class MyStepdefs {
         }
     }
 
-    private void cookies(WebDriver driver, By by) {   //en privat metod som använder sig av explicit wait
+    private void cookies(WebDriver driver, By by) {   //a private method that uses explicit wait
         (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
