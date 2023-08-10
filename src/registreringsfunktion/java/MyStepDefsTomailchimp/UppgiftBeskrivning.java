@@ -10,7 +10,7 @@ Skriv testfall som testar denna registreringsfunktion genom automatisering via C
 
 Testfallen skall täcka 2 krav:
 
-1: Scenarion
+1: fyra Scenarion
 
 Skapa användare – allt går som förväntat
 
