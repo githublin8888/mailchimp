@@ -2,7 +2,7 @@ package MyStepDefsTomailchimp;
 
 /*
 
-Registrera användare
+Uppgift: Registrera användare
 
 På https://login.mailchimp.com/signup/ kan man registrera sig som användare
 
